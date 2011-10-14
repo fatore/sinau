@@ -36,29 +36,7 @@ public class BasicTest extends UnitTest {
 	    assertNotNull(__bob);
 	    assertEquals("Web Master", __bob.role);
 	}
-	
-	@Test
-	public void createAndRetrieveProfessor() {	
-		Fixtures.deleteDatabase();
-	    // Create a new user and save it
-		new Professor(null, "bob", "secret", "Bob the Man", 
-				"bob@gmail.com", "(099)-9999-9999", true, new Long(1), true).create();
-	    
-	    // Retrieve the user with e-mail address bob@gmail.com
-	    User bob = User.find("byEmail", "bob@gmail.com").first();
-	    
-	    // Test 
-	    assertNotNull(bob);
-	    assertEquals("Bob the Man", bob.fullname);
-	    
-	    Professor _bob = (Professor) bob;
-	    assertNotNull(_bob);
-	    assertEquals(new Long(1), _bob.departmentId);
-	    
-	    Professor __bob = Professor.find("byUsername", "bob").first();
-	    assertNotNull(__bob);
-	    assertEquals(true, __bob.coordinator);
-	}
+
 	
 	@Test
 	public void createAndRetrieveStudent() {	

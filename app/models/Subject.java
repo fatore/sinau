@@ -62,4 +62,9 @@ public class Subject extends Model {
 		}
 		return this;
 	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 }

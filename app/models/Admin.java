@@ -14,4 +14,9 @@ public class Admin extends User {
 		super(username, password, fullname, email, phone, active);
 		this.role = role;
 	} 
+	
+	@Override
+	public String toString() {
+		return fullname;
+	}
 }

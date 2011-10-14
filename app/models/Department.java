@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.w3c.dom.Element;
+
 import play.db.jpa.Model;
 
 @Entity
@@ -19,7 +21,7 @@ public class Department extends Model {
 	@ManyToOne
 	public University university;
 	
-	@OneToMany(mappedBy="department", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="department", cascade=CascadeType.PERSIST)
 	public List<Professor> professors;
 	
 	@OneToMany(mappedBy="department", cascade=CascadeType.ALL)
@@ -31,13 +33,16 @@ public class Department extends Model {
 		this.university = university;
 		this.professors = new ArrayList<Professor>();
 		this.courses = new ArrayList<Course>();
+	}	
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 	
-	public Department addProfessor(String username, String password, String fullname,
-			String email, String phone, boolean active, Long departmentId,
-			boolean coordinator) {
-		Professor professor = new Professor(this, username, password, fullname, email,
-				phone, active, departmentId, coordinator).save();
+	public Department addProfessor(Professor professor) {	
+		professor.department = this;
+		professor.save();
 		this.professors.add(professor);
 		this.save();
 		return this;

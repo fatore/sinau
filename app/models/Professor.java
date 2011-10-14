@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Professor extends User {
 	
-	public Long departmentId;
 	public boolean coordinator;
 	
 	@ManyToOne
@@ -20,13 +19,15 @@ public class Professor extends User {
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public List<Subject> subjects;
 	
-	public Professor(Department department, String username, String password, String fullname,
-			String email, String phone, boolean active, Long departmentId,
-			boolean coordinator) {
+	public Professor(String username, String password, String fullname,
+			String email, String phone, boolean active,	boolean coordinator) {
 		super(username, password, fullname, email, phone, active);
-		this.departmentId = departmentId;
 		this.coordinator = coordinator;
-		this.department = department;
 		this.subjects = new ArrayList<Subject>();
+	}
+	
+	@Override
+	public String toString() {
+		return fullname;
 	}
 }

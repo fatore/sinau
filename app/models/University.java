@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import org.w3c.dom.Element;
+
 import play.db.jpa.Model;
 
 @Entity
@@ -27,6 +29,11 @@ public class University extends Model {
 		this.address = address;
 		this.zipCode = zipCode;
 		this.departments = new ArrayList<Department>();
+	}
+		
+	@Override
+	public String toString() {
+		return name;
 	}
 	
 	public University addDepartment(String name, String phone) {

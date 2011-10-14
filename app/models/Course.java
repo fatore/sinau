@@ -33,6 +33,11 @@ public class Course extends Model {
 		this.subjects = new ArrayList<Subject>();
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 	public Course addSubject(String name, String description,
 			Integer workload, Date schedule, Integer room) {
 		Subject subject = new Subject(this, name, description, workload, schedule, room);
@@ -40,5 +45,4 @@ public class Course extends Model {
 		this.save();
 		return this;
 	}
-	
 }

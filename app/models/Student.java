@@ -15,6 +15,7 @@ public class Student extends User {
 	public String address;
 	public Integer semester;
 	public Date beganAt;
+	public boolean scholar;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public List<Subject> subjects;
@@ -28,5 +29,10 @@ public class Student extends User {
 		this.semester = semester;
 		this.beganAt = beganAt;
 		this.subjects = new ArrayList<Subject>();
+	}
+
+	@Override
+	public String toString() {
+		return fullname;
 	}
 }
