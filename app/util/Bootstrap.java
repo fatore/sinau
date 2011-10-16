@@ -16,6 +16,6 @@ import play.test.Fixtures;
 public class Bootstrap extends Job {
 
 	public void doJob() {
-		//GarapaWS.getDataFromWS();
+		GarapaWS.getDataFromWS();
 	}
 }

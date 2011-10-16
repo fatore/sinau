@@ -26,7 +26,7 @@ public class GarapaWS {
 			getDepartment();
 			getCourses();
 			getSubjects();
-			//getUsers();
+			getUsers();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class GarapaWS {
 	private static void getUniversity() {
 		if (University.count() == 0) {
 			Document document = WS.url(
-					"http://garapa.intermidia.icmc.usp.br:8080/Sinau/rest/universidade")
+					"http://garapa.intermidia.icmc.usp.br:8080/Sinau/rest/universidades")
 					.get().getXml("ISO-8859-1");
 
 			NodeList nodeList = document.getDocumentElement().getElementsByTagName("universidade");
@@ -155,7 +155,7 @@ public class GarapaWS {
 				for (int i = 0; i < nodeList.getLength(); i++) {
 					Element element = (Element) nodeList.item(i);
 					
-					String username = element.getElementsByTagName("usuario").item(0).getFirstChild().getNodeValue();
+					String username = element.getElementsByTagName("nomeUsuario").item(0).getFirstChild().getNodeValue();
 					String password = element.getElementsByTagName("senha").item(0).getFirstChild().getNodeValue();
 					String fullname = element.getElementsByTagName("nome").item(0).getFirstChild().getNodeValue();
 					String email = element.getElementsByTagName("email").item(0).getFirstChild().getNodeValue();
@@ -186,7 +186,6 @@ public class GarapaWS {
 	}
 	
 	private static void getAdmins() {
-		if (Admin.count() == 0) {
 			Document document = WS.url(
 					"http://garapa.intermidia.icmc.usp.br:8080/Sinau/rest/administradores")
 					.get().getXml("UTF-8");
@@ -207,13 +206,9 @@ public class GarapaWS {
 				}
 			}
 			System.out.println("Success: Admins Loaded.");
-		} else {
-			System.out.println("Error: Admins Table Not Empty.");
-		}
 	}
 	
 	private static void getStudents() throws Exception {
-		if (Student.count() == 0) {
 			Document document = WS.url(
 					"http://garapa.intermidia.icmc.usp.br:8080/Sinau/rest/alunos")
 					.get().getXml("ISO-8859-1");
@@ -236,24 +231,26 @@ public class GarapaWS {
 					Long userId = Long.parseLong(element.getElementsByTagName("idusuario").
 							item(0).getFirstChild().getNodeValue());
 					
-					Student student = User.findById(userId);
+					// TODO : remove this treatment or add it to others 
+					try {
+						Student student = User.findById(userId);
+						
+						student.regNumber = regNumber;
+						student.address = address;
+						student.semester = semester;
+						student.beganAt = beganAt;
+						student.scholar = scholar;
+						
+						student.save();
+					} catch (Exception e) {
+						System.err.println("Inconsistency in XML file!");
+					}
 					
-					student.regNumber = regNumber;
-					student.address = address;
-					student.semester = semester;
-					student.beganAt = beganAt;
-					student.scholar = scholar;
-					
-					student.save();
 				}
 			}
 			System.out.println("Success: Students Loaded.");
-		} else {
-			System.out.println("Error: Students Table Not Empty.");
-		}
 	}
 	private static void getProfessors() throws Exception {
-		if (Professor.count() == 0) {
 			Document document = WS.url(
 					"http://garapa.intermidia.icmc.usp.br:8080/Sinau/rest/professores")
 					.get().getXml("ISO-8859-1");
@@ -281,8 +278,5 @@ public class GarapaWS {
 				}
 			}
 			System.out.println("Success: Professors Loaded.");
-		} else {
-			System.out.println("Error: Professors Table Not Empty.");
-		}
 	}
 }
