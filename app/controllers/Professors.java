@@ -1,7 +1,11 @@
 package controllers;
 
+import java.util.List;
+
+import play.db.Model;
 import controllers.CRUD;
+import controllers.CRUD.ObjectType;
 
-public class Professors extends CRUD {
-
+public class Professors extends CRUD {	
+	
 }

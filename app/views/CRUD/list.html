@@ -1,0 +1,23 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:('Sinau - ' + type.name) /}
+#{set active:type.name.toLowerCase() /}
+
+<div id="crudList" class="${type.name}">
+
+    <div id="crudListSearch">
+        #{crud.search /}
+    </div>
+
+    <div id="crudListTable">
+        #{crud.table /}
+    </div>
+
+    <div id="crudListPagination">
+        #{crud.pagination /}
+    </div>
+
+    <p id="crudListAdd">
+        <a href="@{blank()}">&{'crud.add', type.modelName}</a>
+    </p>
+
+</div>

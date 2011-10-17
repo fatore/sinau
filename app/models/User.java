@@ -28,4 +28,8 @@ public abstract class User extends Model {
 		this.phone = phone;
 		this.active = active;
 	}
+	
+	public static User connect(String username, String password) {
+		return find("byUsernameAndPassword", username, password).first();
+	}
 }

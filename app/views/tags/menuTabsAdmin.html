@@ -1,0 +1,16 @@
+<div id="menu">
+	<ul>
+		<li id ="home"><a href="@{Admin.index()}"><span>Home</span></a></li>
+		<li id ="universities"><a href="@{Universities.list()}"><span>Universities</span></a></li>
+		<li id ="departments"><a href="@{Departments.list()}"><span>Departments</span></a></li>
+		<li id ="students"><a href="@{Students.list()}"><span>Students</span></a></li>
+		<li id ="professors"><a href="@{Professors.list()}"><span>Professors</span></a></li>
+		<li id ="courses"><a href="@{Courses.list()}"><span>Courses</span></a></li>
+		<li id ="subjects"><a href="@{Subjects.list()}"><span>Subjects</span></a></li>
+		<li id ="admins"><a href="@{Admins.list()}"><span>Admins</span></a></li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	document.getElementById("${_as}").setAttribute("class", "active");
+</script>

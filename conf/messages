@@ -1,3 +1,30 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+role = Role
+username = Username
+password = Password
+fullname = Full Name
+email = E-mail
+phone = Phone Number
+active = Is Active?
+name = Name
+area = Area
+availableSeats = Available Seats
+department = Department
+university = University
+coordinator = Is Coordinator?
+subjects = Subjects
+regNumber = Register Number
+address = Address
+semester = Semester
+beganAt = Began at
+scholar = Has Scholarship?
+description = Description
+workload = Workload
+schedule = Schedule
+room = Room
+course = Course
+users = Users
+city = City
+zipCode = Zip Code

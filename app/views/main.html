@@ -13,11 +13,21 @@
 	<div id="wrap">
 		<div id="header">
 			<div id="logo">
-				<a href="#">sinau</a>
+			#{if session.username && controllers.Secure.Security.invoke("check", 'admin')}
+				<a href="@{Admin.index()}">sinau <span>administration</span></a>
+			#{/if}
+			#{else}
+				<a href="@{Application.index()}">sinau</a>
+			#{/else}
 			</div>
 			<ul id="tools">
 				<li>
-					<a href="#">Login</a>
+				#{if controllers.Security.isConnected()}
+					<a href="@{Secure.logout()}">Log out</a>
+				#{/if}
+				#{else}
+					<a href="@{Admin.index()}">Log in</a>
+				#{/else}
 				</li>
 			</ul>
 		</div>
@@ -27,11 +37,16 @@
 		</div>
 		
 		<div id="main">
-			#{doLayout /}
+			<div id="content">
+				#{doLayout /}
+			</div>			
 		</div>
 	
 		<div id="footer">
-			Web Design Patterns Homework by Francisco Morgani Fatore
+			Web Design Patterns Homework 
+			</br>
+			by Francisco Morgani Fatore - 64626826
+			and Patricio Carneiro da Frota - 6426614
 		</div>
 	</div>
 </body>

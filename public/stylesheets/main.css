@@ -33,12 +33,16 @@ ul {
 #logo a {
 	display: block;
 	height: 70px;
-	margin-left: 20px;
 	color: #fff;
 	font-size: 68px;
     font-weight: bolder;
     letter-spacing: -4px;
     text-shadow: 1px 2px 2px #000;
+}
+
+#logo span {
+    color: #f00;
+    font-size: 70%;
 }
 
 #menu li {
@@ -59,13 +63,13 @@ ul {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	display: block;
-	background: #8F9396;
+	background: #B8D0E0;
 	padding: 0 10px 0 10px;
 	height: 30px;
 }
 
 #menu li a:hover span {
-	background: #E89623;
+	background: #498BBA;
 	text-shadow: #fff 1px 1px 1px;
 }
 
@@ -74,7 +78,7 @@ ul {
 }
 
 #menu li.active a span {
-	background: #D99434;
+	background: #498BBA;
 }
 
 #tools {
@@ -91,11 +95,17 @@ ul {
 
 #main {
 	clear: both;
-    background: #E89623;
+    background: #498BBA;
     padding: 10px;
     border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-top-right-radius: 10px;
+}
+
+#content {
+	background: #E1EAF0;
+	padding: 10px;
+	border-radius: 10px;]
 }
 
 #footer {
@@ -111,4 +121,3 @@ ul {
     color: #869AB1;
     font-weight: bold;
 }
-
