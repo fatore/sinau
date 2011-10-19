@@ -4,6 +4,9 @@ import java.util.*;
 import java.lang.reflect.*;
 import java.lang.annotation.*;
 
+
+
+
 import play.*;
 import play.data.binding.*;
 import play.mvc.*;
@@ -45,6 +48,7 @@ public abstract class CRUD extends Controller {
         }
     }
 
+    @Insecure
     public static void show(String id) {
         ObjectType type = ObjectType.get(getControllerClass());
         notFoundIfNull(type);

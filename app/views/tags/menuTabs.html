@@ -1,31 +1,40 @@
-#{if session.username && controllers.Secure.Security.invoke("check", 'admin')}
 	<div id="menu">
 		<ul>
-			<li id ="home"><a href="@{Admin.index()}"><span>Home</span></a></li>
-			<li id ="universities"><a href="@{Universities.list()}"><span>Universities</span></a></li>
-			<li id ="departments"><a href="@{Departments.list()}"><span>Departments</span></a></li>
-			<li id ="students"><a href="@{Students.list()}"><span>Students</span></a></li>
-			<li id ="professors"><a href="@{Professors.list()}"><span>Professors</span></a></li>
-			<li id ="courses"><a href="@{Courses.list()}"><span>Courses</span></a></li>
-			<li id ="subjects"><a href="@{Subjects.list()}"><span>Subjects</span></a></li>
-			<li id ="admins"><a href="@{Admins.list()}"><span>Admins</span></a></li>
+			<li id ="universities" class="${request.controller == 'Universities' ? 'active' : ''}">
+			#{if session.username && controllers.Secure.Security.invoke("check", 'admin')}
+				<li id ="home" class="${request.controller == 'Admin' ? 'active' : ''}">
+                	<a href="@{Admin.index()}"><span>Home</span></a>
+            	</li>
+			#{/if}
+			#{else}
+				<li id ="home" class="${request.controller == 'Application' ? 'active' : ''}">
+                	<a href="@{Application.index}"><span>Home</span></a>
+            	</li>
+            </li>
+			#{/else}
+			<li id ="universities" class="${request.controller == 'Universities' ? 'active' : ''}">
+                <a href="@{Universities.list()}"><span>Universities</span></a>
+            </li>
+			<li id ="departments" class="${request.controller == 'Departments' ? 'active' : ''}">
+                <a href="@{Departments.list()}"><span>Departments</span></a>
+            </li>
+			<li id ="students" class="${request.controller == 'Students' ? 'active' : ''}">
+                <a href="@{Students.list()}"><span>Students</span></a>
+            </li>
+			<li id ="professors" class="${request.controller == 'Professors' ? 'active' : ''}">
+                <a href="@{Professors.list()}"><span>Professors</span></a>
+            </li>
+			<li id ="courses" class="${request.controller == 'Courses' ? 'active' : ''}">
+                <a href="@{Courses.list()}"><span>Courses</span></a>
+            </li>
+			<li id ="subjects" class="${request.controller == 'Subjects' ? 'active' : ''}">
+                <a href="@{Subjects.list()}"><span>Subjects</span></a>
+            </li>
+			#{secure.check 'admin'}
+				<li id ="admins" class="${request.controller == 'Admins' ? 'active' : ''}">
+	                <a href="@{Admins.list()}"><span>Admins</span></a>
+	            </li>
+			#{/secure.check}
 		</ul>
 	</div>
-#{/if}
-#{else}
-	<div id="menu">
-		<ul>
-			<li id ="home"><a href="@{Application.index}"><span>Home</span></a></li>
-			<li id ="universities"><a href="@{Universities.list()}"><span>Universities</span></a></li>
-			<li id ="departments"><a href="@{Departments.list()}"><span>Departments</span></a></li>
-			<li id ="students"><a href="@{Students.list()}"><span>Students</span></a></li>
-			<li id ="professors"><a href="@{Professors.list()}"><span>Professors</span></a></li>
-			<li id ="courses"><a href="@{Courses.list()}"><span>Courses</span></a></li>
-			<li id ="subjects"><a href="@{Subjects.list()}"><span>Subjects</span></a></li>
-		</ul>
-	</div>
-#{/else}
 
-<script type="text/javascript">
-	document.getElementById("${_as}").setAttribute("class", "active");
-</script>

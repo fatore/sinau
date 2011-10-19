@@ -3,8 +3,6 @@
 
 <div id="crudShow" class="${type.name}">
 
-    <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
-
     <div class="objectForm">
     #{form action:@save(object._key()), enctype:'multipart/form-data'}
         #{crud.form /}

@@ -2,14 +2,14 @@ package controllers;
 
 import java.util.List;
 
+import controllers.CRUD.ObjectType;
+
 import play.classloading.enhancers.ControllersEnhancer.ByPass;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
 import play.mvc.With;
 
 import models.University;
-import controllers.CRUD;
-import controllers.CRUD.ObjectType;
 
 @Check("admin")
 @With(Secure.class)
