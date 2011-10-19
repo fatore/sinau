@@ -30,6 +30,23 @@ ul {
     margin-bottom: 20px;
 }
 
+#login form {
+    background: #8B98AD !important;
+    border: 0 !important;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+}
+
+#login label, #password-field label, #username-field label {
+    color: #161D28 !important;
+    font-size: 110% !important;
+}
+
+
+#remember-field {
+    display: none;
+}
+
 #logo a {
 	display: block;
 	height: 70px;
@@ -44,6 +61,7 @@ ul {
     color: #f00;
     font-size: 70%;
 }
+
 
 #menu li {
 	display: inline;

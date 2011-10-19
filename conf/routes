@@ -2,22 +2,21 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Import Secure routes
-*       /                                       module:secure
-
-GET     /                                       Application.index
-GET		/universities							Universities.list
-
 # Ignore favicon requests
 GET     /favicon.ico                            404
+
+GET		/login									Secure.login
+POST    /login          						Secure.authenticate
+GET     /logout         						Secure.logout
+
+GET     /                                       Application.index
+GET		/admin									Admin.index
+GET		/{controller}							{controller}.List
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-# Import CRUD routes
-GET		/admin/?								Admin.index
-*       /admin              					module:crud
-
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
 

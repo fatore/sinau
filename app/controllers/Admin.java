@@ -1,6 +1,7 @@
 package controllers;
 
 import models.User;
+import play.classloading.enhancers.ControllersEnhancer.ByPass;
 import play.mvc.*;
 
 @With(Secure.class)

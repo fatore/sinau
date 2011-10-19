@@ -1,5 +1,7 @@
 package controllers;
 
+import org.junit.Before;
+
 import models.User;
 
 public class Security extends Secure.Security {
@@ -13,7 +15,10 @@ public class Security extends Secure.Security {
 	}
 	
 	public static void onAuthenticated() {
-		Admin.index();
+		if (check("admin")) {
+			Admin.index();
+		}
+		Application.index();
 	}
 	
 	public static boolean check(String profile) {

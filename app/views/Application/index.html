@@ -1,7 +1,11 @@
 #{extends 'main.html' /}
-#{set title:'Sinau'  /}
+#{set title:'Sinau' /}
 #{set active:'home' /}
 
-<p>
-	Welcome!
-</p>
+
+#{if controllers.Security.isConnected()}
+Welcome ${user} !
+#{/if}
+#{else}
+Log in to see your name here!
+#{/else}
