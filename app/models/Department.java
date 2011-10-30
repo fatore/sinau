@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -33,7 +34,16 @@ public class Department extends Model {
 		this.university = university;
 		this.professors = new ArrayList<Professor>();
 		this.courses = new ArrayList<Course>();
-	}	
+	}
+	
+	public Department(Long id, University university, String name, String phone) {
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.university = university;
+		this.professors = new ArrayList<Professor>();
+		this.courses = new ArrayList<Course>();
+	}
 	
 	@Override
 	public String toString() {

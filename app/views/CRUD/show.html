@@ -1,22 +1,57 @@
 #{extends 'CRUD/layout.html' /}
 #{set title:messages.get('crud.show.title', type.modelName) /}
-
 <div id="crudShow" class="${type.name}">
-
-    <div class="objectForm">
-    #{form action:@save(object._key()), enctype:'multipart/form-data'}
-        #{crud.form /}
-        <p class="crudButtons">
-            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
-            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
-        </p>
-    #{/form}
-    </div>
-
-    #{form @delete(object._key())}
-        <p class="crudDelete">
-            <input type="submit" value="&{'crud.delete', type.modelName}" />
-        </p>
-    #{/form}
-
+	<div class="objectForm">
+		#{form action:@save(object._key()), enctype:'multipart/form-data'}
+		#{crud.form /}
+		#{secure.check 'admin'}
+		<p class="crudButtons">
+			<input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+			<input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+		</p>
+		#{/secure.check}
+		#{/form}
+	</div>
+	#{form @delete(object._key())}
+	#{secure.check 'admin'}
+	<p class="crudDelete">
+		<input type="submit" value="&{'crud.delete', type.modelName}" />
+	</p>
+	#{/secure.check}
+	#{/form}
 </div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#crudShow form").submit(function() {
+
+			var dataString = ''
+			$('form:first input').each(function() {
+				if ($(this).attr('type') != 'submit') {
+					dataString += ($(this).attr('name') + '=' + $(this).attr('value') + '&');
+				}
+			});
+			if ($("input[type=submit][clicked=true]").attr('name') == '_save') {
+				dataString += '_save=true'
+			} 
+			
+			//show the loading sign
+			$('.loading').show();
+
+			$.ajax({
+				type : "POST",
+				url : $(this).attr('action'),
+				data : dataString,
+				success : function(data) {
+					$('#crudContent').empty();
+					$('#crudContent').append(data);
+				}
+			});
+			$('.loading').hide();
+			return false;
+		});
+	});
+	$("form input[type=submit]").click(function() {
+    $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+    $(this).attr("clicked", "true");
+});
+</script>

@@ -1,0 +1,40 @@
+<link rel="stylesheet" media="screen" href="/public/stylesheets/crud.css" />
+<div id="crud">
+	<div id="crudContent">
+		<div id="crudBlank" class="Universities">
+			<div class="objectForm">
+				<form action="/universities/create" method="POST" accept-charset="utf-8" enctype="multipart/form-data" >
+					<input type="hidden" name="authenticityToken" value="c0b7d3d1bd4dc6dc4abf2856c6f5a88da676e167">
+					<div class="crudField crud_text">
+						<label for="object_name"> Name </label>
+						<input id="object_name" class="" type="text" name="object.name" value="" size="50" />
+						<span class="crudHelp"> </span>
+					</div>
+					<div class="crudField crud_text">
+						<label for="object_city"> City </label>
+						<input id="object_city" class="" type="text" name="object.city" value="" size="50" />
+						<span class="crudHelp"> </span>
+					</div>
+					<div class="crudField crud_text">
+						<label for="object_address"> Address </label>
+						<input id="object_address" class="" type="text" name="object.address" value="" size="50" />
+						<span class="crudHelp"> </span>
+					</div>
+					<div class="crudField crud_text">
+						<label for="object_zipCode"> Zip Code </label>
+						<input id="object_zipCode" class="" type="text" name="object.zipCode" value="" size="50" />
+						<span class="crudHelp"> </span>
+					</div>
+					<div class="crudField crud_unknown">
+						<span class="crudHelp"> </span>
+					</div>
+					<p class="crudButtons">
+						<input type="submit" name="_save" value="Save" />
+						<input type="submit" name="_saveAndContinue" value="Save and continue editing" />
+						<input type="submit" name="_saveAndAddAnother" value="Save and create another" />
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

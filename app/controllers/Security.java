@@ -15,9 +15,6 @@ public class Security extends Secure.Security {
 	}
 	
 	public static void onAuthenticated() {
-		if (check("admin")) {
-			Admin.index();
-		}
 		Application.index();
 	}
 	

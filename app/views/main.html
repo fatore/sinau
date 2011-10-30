@@ -6,6 +6,8 @@
 	<title>#{get 'title' /}</title>		
     <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}" />
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}" />
+    <script type="text/javascript" src="public/javascripts/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="public/javascripts/myjs.js"></script>
 </head>
 
 <body>
@@ -13,12 +15,11 @@
 	<div id="wrap">
 		<div id="header">
 			<div id="logo">
-			#{if session.username && controllers.Secure.Security.invoke("check", 'admin')}
-				<a href="@{Admin.index()}">sinau <span>administration</span></a>
-			#{/if}
-			#{else}
-				<a href="@{Application.index()}">sinau</a>
-			#{/else}
+				<a href="@{Application.index()}">sinau
+				#{secure.check 'admin'}
+					<span> administration</span>
+				#{/secure.check}
+				</a>
 			</div>
 			<ul id="tools">
 				<li>
@@ -26,7 +27,7 @@
 					<a href="@{Secure.logout()}">Log out</a>
 				#{/if}
 				#{else}
-					<a href="@{Admin.index()}">Log in</a>
+					<a id="loginButton" href="@{Secure.login()}">Log in</a>
 				#{/else}
 				</li>
 			</ul>
@@ -50,6 +51,5 @@
 		</div>
 	</div>
 </body>
-
 </html>
 

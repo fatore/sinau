@@ -4,6 +4,8 @@ import play.*;
 import play.db.Model;
 import play.exceptions.TemplateNotFoundException;
 import play.mvc.*;
+import play.mvc.results.RenderHtml;
+import play.utils.HTML;
 
 import java.util.*;
 
@@ -25,6 +27,6 @@ public class Application extends Controller {
 	}
 	
 	public static void index() {
-        render();
+		render();
     }
 }

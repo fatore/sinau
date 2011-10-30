@@ -15,3 +15,42 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#crudBlank .objectForm form").submit(function() {
+
+			var dataString = ''
+			$('form:first input').each(function() {
+				if ($(this).attr('type') != 'submit') {
+					dataString += ($(this).attr('name') + '=' + $(this).attr('value') + '&');
+				}
+			});
+			if ($("input[type=submit][clicked=true]").attr('name') == '_save') {
+				dataString += '_save=true'
+			} 
+			if ($("input[type=submit][clicked=true]").attr('name') == '_saveAndAddAnother') {
+				dataString += '_saveAndAddAnother=true'
+			} 
+
+			//show the loading sign
+			$('.loading').show();
+
+			$.ajax({
+				type : "POST",
+				url : $(this).attr('action'),
+				data : dataString,
+				success : function(data) {
+					$('#crudContent').empty();
+					$('#crudContent').append(data);
+				}
+			});
+			$('.loading').hide();
+			return false;
+		});
+	});
+	$("form input[type=submit]").click(function() {
+    $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+    $(this).attr("clicked", "true");
+});
+</script>

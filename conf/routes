@@ -5,15 +5,14 @@
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
-GET		/login									Secure.login
-POST    /login          						Secure.authenticate
-GET     /logout         						Secure.logout
+*		/login									Secure.login
+*       /logout         						Secure.logout
 
 GET     /                                       Application.index
-GET		/admin									Admin.index
-GET		/{controller}							{controller}.List
+*		/{controller}							{controller}.list
 
 # Map static resources from the /app/public folder to the /public path
+GET     /datatables/        					staticDir:public/DataTables-1.8.2/media
 GET     /public/                                staticDir:public
 
 # Catch all

@@ -30,23 +30,6 @@ ul {
     margin-bottom: 20px;
 }
 
-#login form {
-    background: #8B98AD !important;
-    border: 0 !important;
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-}
-
-#login label, #password-field label, #username-field label {
-    color: #161D28 !important;
-    font-size: 110% !important;
-}
-
-
-#remember-field {
-    display: none;
-}
-
 #logo a {
 	display: block;
 	height: 70px;
@@ -62,11 +45,26 @@ ul {
     font-size: 70%;
 }
 
+#login form {
+	border: 0 !important;
+    background: #23242B !important;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+
+#login label, #password-field label, #username-field label {
+    color: #fff !important;
+    font-size: 110% !important;
+}
+
+#remember-field {
+	display: none;
+}
 
 #menu li {
 	display: inline;
-	font: bold 22px Comfortaa;
-	height: 44px;
+	font: bold 20px Arial;
 }
 
 #menu li a {	
@@ -83,7 +81,7 @@ ul {
 	display: block;
 	background: #B8D0E0;
 	padding: 0 10px 0 10px;
-	height: 30px;
+	height: 28px;
 }
 
 #menu li a:hover span {
@@ -93,6 +91,8 @@ ul {
 
 #menu li.active a {
 	text-shadow: #fff 1px 1px 1px;
+	outline: none;
+	
 }
 
 #menu li.active a span {
@@ -123,7 +123,45 @@ ul {
 #content {
 	background: #E1EAF0;
 	padding: 10px;
-	border-radius: 10px;]
+	border-radius: 10px;
+}
+
+.aBox {
+	border: 1px solid #aaa;
+	border-width: 2px;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+}
+
+#threecolumns {
+	padding: 10px 0 10px 0;
+}
+
+#threecolumns .cell13 {
+	float: left;
+	width: 31.3%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+#threecolumns .cell12 {
+	float: left;
+	width: 48.0%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.clear {
+	clear: both;
+}
+
+.loading {
+	margin: 20px auto;
+    background:url(/public/images/ajax-loader.gif) no-repeat 1px; 
+    height:28px; 
+    width:28px; 
+    display: none;
 }
 
 #footer {

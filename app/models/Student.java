@@ -14,6 +14,7 @@ public class Student extends User {
 	public Long regNumber;
 	public String address;
 	public Integer semester;
+	
 	public Date beganAt;
 	public boolean scholar;
 	

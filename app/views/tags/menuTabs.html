@@ -1,18 +1,9 @@
 	<div id="menu">
 		<ul>
-			<li id ="universities" class="${request.controller == 'Universities' ? 'active' : ''}">
-			#{if session.username && controllers.Secure.Security.invoke("check", 'admin')}
-				<li id ="home" class="${request.controller == 'Admin' ? 'active' : ''}">
-                	<a href="@{Admin.index()}"><span>Home</span></a>
-            	</li>
-			#{/if}
-			#{else}
-				<li id ="home" class="${request.controller == 'Application' ? 'active' : ''}">
-                	<a href="@{Application.index}"><span>Home</span></a>
-            	</li>
-            </li>
-			#{/else}
-			<li id ="universities" class="${request.controller == 'Universities' ? 'active' : ''}">
+			<li id ="home" class="${request.controller == 'Application' ? 'active' : ''}">
+            	<a href="@{Application.index}"><span>Home</span></a>
+        	</li>
+			<li id ="universities">
                 <a href="@{Universities.list()}"><span>Universities</span></a>
             </li>
 			<li id ="departments" class="${request.controller == 'Departments' ? 'active' : ''}">

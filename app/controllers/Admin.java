@@ -14,9 +14,4 @@ public class Admin extends Controller {
 			renderArgs.put("user", user.fullname);
 		}
 	}
-	
-    public static void index() {
-        render();
-    }
-
 }

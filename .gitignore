@@ -4,3 +4,6 @@
 /test-result
 /logs
 /eclipse
+.classpath
+.project
+.settings/

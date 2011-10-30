@@ -1,10 +1,31 @@
 #{extends 'main.html' /}
-#{set title:'Sinau' /}
-
-
-#{if controllers.Security.isConnected()}
-Welcome ${user} !
+#{if session.username && controllers.Secure.Security.invoke("check", 'admin')}
+	#{set title:'Sinau Administration' /}
 #{/if}
 #{else}
-Log in to see your name here!
+	#{set title:'Sinau' /}
 #{/else}
+
+<div class="loading"></div>
+
+<div id="crudContent"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#menu ul li').click(function () {
+		if (this.id != 'home') {
+			$('#crudContent').load($(this).find("a").attr("href"));
+			$('.loading').show();
+			$('.active').removeClass('active');
+			$(this).addClass('active');
+			$('.loading').hide();
+		    return false;
+		} else {
+			return true;
+		}
+	});
+});
+</script>
+
+<div id="otherContent"></div>
+

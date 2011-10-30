@@ -21,7 +21,7 @@
 }
 
 #crud #crudHeader h1 a {
-	color: gold;
+	color: #CCCCCC;
 	text-decoration: none;
 }
 
@@ -71,7 +71,6 @@
 /** Content **/
 
 #crud #crudContent {
-	padding: 10px 20px;
 }
 
 #crud #crudContent h2 {
@@ -140,17 +139,17 @@
 
 /** Forms **/
 
-form {
+#crud form {
 	margin: 0;
 }
 
-input, textarea, select {
+#crud input, textarea, select {
 	font-family: 'Helvetica', 'Arial', 'Sans';
 	font-size: 16px;
 	padding: 2px;
 }
 
-textarea {
+#crud textarea {
 	padding: 2px;
 }
 
@@ -158,7 +157,7 @@ textarea {
 	border: 1px solid #ddd;
 }
 
-label {
+#crud label {
 	display: block;
 	font-weight: bold;
 	width: 20%;
@@ -209,14 +208,14 @@ label {
 	margin-top: 5px;
 }
 
-form .currentAttachment {
+#crud form .currentAttachment {
 	display: block;
 	font-size: 80%;
 	margin-left: 20%;
 	padding-top: 4px;
 }
 
-form .removeAttachment {
+#crud form .removeAttachment {
     display: block;
     font-size: 80%;
     margin-left: 20%;
@@ -286,6 +285,7 @@ form .removeAttachment {
 	padding: 4px 5px;
 	border: 1px solid #ddd;
 	background: #efefef;
+	margin-bottom: 10px;
 }
 
 #crudListSearch input[type=text] {

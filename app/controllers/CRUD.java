@@ -30,10 +30,10 @@ public abstract class CRUD extends Controller {
         }
         render("CRUD/index.html");
     }
-
+    
     @Insecure
     public static void list(int page, String search, String searchFields, String orderBy, String order) {
-        ObjectType type = ObjectType.get(getControllerClass());
+    	ObjectType type = ObjectType.get(getControllerClass());
         notFoundIfNull(type);
         if (page < 1) {
             page = 1;
@@ -104,6 +104,8 @@ public abstract class CRUD extends Controller {
         }
         object._save();
         flash.success(Messages.get("crud.saved", type.modelName));
+        System.out.println(params.current().allSimple().toString());
+        
         if (params.get("_save") != null) {
             redirect(request.controller + ".list");
         }

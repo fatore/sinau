@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import org.w3c.dom.Element;
@@ -30,7 +31,15 @@ public class University extends Model {
 		this.zipCode = zipCode;
 		this.departments = new ArrayList<Department>();
 	}
-		
+	
+	public University(long pseudoId, String name, String city, String address, String zipCode) {
+		this.name = name;
+		this.city = city;
+		this.address = address;
+		this.zipCode = zipCode;
+		this.departments = new ArrayList<Department>();
+	}
+	
 	@Override
 	public String toString() {
 		return name;
